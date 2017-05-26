@@ -1,0 +1,2 @@
+# doGuwMaya
+toolkit for maya
