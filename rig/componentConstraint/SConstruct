@@ -1,0 +1,21 @@
+import excons
+from excons.tools import maya
+
+
+env = excons.MakeBaseEnv()
+prjs = []
+
+
+prjs.append({"name": "componentConstraint",
+              "alias": "componentConstraint",
+              "type": "dynamicmodule",
+              "ext": maya.PluginExt(),
+              "prefix": "plug-ins/%s" % maya.Version(nice=True),
+              "defs": [],
+              "incdirs": [],
+              "srcs": excons.glob("src/*.cpp"),
+              "install": {"python": ["python/componentConstraint"]},
+              "custom": [maya.Require, maya.Plugin]})
+
+
+excons.DeclareTargets(env, prjs)
